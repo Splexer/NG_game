@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk1jmjd3jsujt"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_854bt"]
+[ext_resource type="Texture2D" uid="uid://bvui4c7uaqya5" path="res://assets/objects/Oak_Tree.png" id="2_3ddvp"]
+[ext_resource type="Script" path="res://elements/interact_obj/tree/tree.gd" id="2_sx65p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5o1l"]
+radius = 9.05539
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcetw"]
+radius = 19.0263
+
+[node name="tree" instance=ExtResource("1_854bt")]
+texture_filter = 3
+script = ExtResource("2_sx65p")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_y5o1l")
+
+[node name="Area2D" parent="." index="1"]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_tcetw")
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -8)
+texture = ExtResource("2_3ddvp")
+offset = Vector2(0, -10.235)

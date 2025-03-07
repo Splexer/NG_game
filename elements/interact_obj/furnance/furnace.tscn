@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxv14oldw78cu"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_pm121"]
+[ext_resource type="Texture2D" uid="uid://dpnvei2jw5p13" path="res://assets/objects/Stone_02-Sheet.png" id="2_hwuyh"]
+[ext_resource type="Script" path="res://elements/interact_obj/furnance/furnace.gd" id="2_koim1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4oga6"]
+radius = 15.0333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivesx"]
+radius = 27.0185
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydoj"]
+atlas = ExtResource("2_hwuyh")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbb4q"]
+atlas = ExtResource("2_hwuyh")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40gd1"]
+atlas = ExtResource("2_hwuyh")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rosok"]
+atlas = ExtResource("2_hwuyh")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh61l"]
+atlas = ExtResource("2_hwuyh")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dkqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydoj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbb4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40gd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rosok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh61l")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 3.0
+}]
+
+[node name="furnace" instance=ExtResource("1_pm121")]
+texture_filter = 1
+script = ExtResource("2_koim1")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1, -13)
+shape = SubResource("CircleShape2D_4oga6")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_ivesx")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_2dkqi")
+animation = &"Idle"
+autoplay = "Idle"
+offset = Vector2(0, -20)

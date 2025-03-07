@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgswlm7iws7a3"]
+
+[ext_resource type="Script" path="res://elements/houses/baseHouse/base_house.gd" id="1_67e1g"]
+
+[node name="baseHouse" type="Node2D" groups=["houses"]]
+y_sort_enabled = true
+script = ExtResource("1_67e1g")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(0, -21)
+offset = Vector2(0, -30)
+
+[node name="UnlockDoor" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+
+[node name="InArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InArea"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Confirm_panel" type="MarginContainer" parent="."]
+visible = false
+z_index = 9
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Confirm_panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Confirm_panel"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Confirm_panel/VBoxContainer"]
+layout_mode = 2
+text = "Use key to open?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirm_panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Accept_btn" type="Button" parent="Confirm_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "YES"
+
+[node name="Decline_btn" type="Button" parent="Confirm_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NO"
+
+[connection signal="body_entered" from="InArea" to="." method="_on_in_area_body_entered"]
+[connection signal="body_exited" from="InArea" to="." method="_on_in_area_body_exited"]
+[connection signal="pressed" from="Confirm_panel/VBoxContainer/HBoxContainer/Accept_btn" to="." method="_on_accept_btn_pressed"]
+[connection signal="pressed" from="Confirm_panel/VBoxContainer/HBoxContainer/Decline_btn" to="." method="_on_decline_btn_pressed"]

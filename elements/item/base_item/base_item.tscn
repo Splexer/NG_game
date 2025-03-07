@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://blekfskps46oc"]
+
+[ext_resource type="Script" path="res://elements/item/base_item/base_item.gd" id="1_qk68u"]
+
+[node name="base_item" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_qk68u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

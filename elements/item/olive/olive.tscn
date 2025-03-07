@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://tgrs12ypbtw3"]
+
+[ext_resource type="PackedScene" uid="uid://blekfskps46oc" path="res://elements/item/base_item/base_item.tscn" id="1_e0ixk"]
+[ext_resource type="Script" path="res://elements/item/olive/olive.gd" id="2_8l5np"]
+[ext_resource type="Texture2D" uid="uid://dih5gliraak64" path="res://assets/items/Farm.png" id="3_46dgd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtods"]
+atlas = ExtResource("3_46dgd")
+region = Rect2(144, 208, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gkbp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtods")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hl3qg"]
+
+[node name="olive" instance=ExtResource("1_e0ixk")]
+script = ExtResource("2_8l5np")
+health_power = -10
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3gkbp")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_hl3qg")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b536jj2hqxub2"]
+
+[ext_resource type="PackedScene" uid="uid://blekfskps46oc" path="res://elements/item/base_item/base_item.tscn" id="1_ui53f"]
+[ext_resource type="Texture2D" uid="uid://dih5gliraak64" path="res://assets/items/Farm.png" id="2_082g4"]
+[ext_resource type="Script" path="res://elements/item/posion_locked/poison_locked.gd" id="2_mcbe1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q1cj"]
+atlas = ExtResource("2_082g4")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2gv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q1cj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld0i5"]
+radius = 10.0499
+
+[node name="poison_locked" instance=ExtResource("1_ui53f")]
+script = ExtResource("2_mcbe1")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_f2gv5")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_ld0i5")

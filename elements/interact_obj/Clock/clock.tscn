@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://clje6yjkrwlcm"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_cff4c"]
+[ext_resource type="Script" path="res://elements/interact_obj/Clock/clock.gd" id="2_ftidh"]
+[ext_resource type="Texture2D" uid="uid://u2yu8rd2bt4r" path="res://assets/objects/TopDownHouse_FurnitureState1.png" id="2_ilix0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjpco"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4scgu"]
+radius = 29.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3wpi"]
+atlas = ExtResource("2_ilix0")
+region = Rect2(69, 110, 23, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_577u1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3wpi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Clock" instance=ExtResource("1_cff4c")]
+script = ExtResource("2_ftidh")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_wjpco")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_4scgu")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_577u1")
+offset = Vector2(0, -6)

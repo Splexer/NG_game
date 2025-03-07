@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://iu1guvqpxtjw"]
+
+[ext_resource type="PackedScene" uid="uid://bgswlm7iws7a3" path="res://elements/houses/baseHouse/base_house.tscn" id="1_yr84r"]
+[ext_resource type="Texture2D" uid="uid://bh5kii5x7plbg" path="res://assets/house/free.png" id="2_sj71s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55dja"]
+atlas = ExtResource("2_sj71s")
+region = Rect2(66, 50, 75, 78)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_evgxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pneqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqjgh"]
+size = Vector2(59, 26)
+
+[node name="clock_house" instance=ExtResource("1_yr84r")]
+
+[node name="MainSprite" parent="." index="0"]
+position = Vector2(0, -14)
+texture = SubResource("AtlasTexture_55dja")
+offset = Vector2(0, -25)
+
+[node name="UnlockDoor" parent="." index="1"]
+position = Vector2(0.5, -10)
+scale = Vector2(13, 18)
+texture = SubResource("CanvasTexture_evgxr")
+
+[node name="CollisionShape2D" parent="InArea" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_pneqg")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.5, -13)
+shape = SubResource("RectangleShape2D_hqjgh")
+
+[node name="Confirm_panel" parent="." index="4"]
+offset_left = -65.865
+offset_top = -100.0
+offset_right = 65.135
+offset_bottom = -42.0

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1kludn1dt8rs"]
+
+[ext_resource type="PackedScene" uid="uid://bgswlm7iws7a3" path="res://elements/houses/baseHouse/base_house.tscn" id="1_olp5v"]
+[ext_resource type="Texture2D" uid="uid://rggpjt3r2x2n" path="res://assets/house/RedHouse.png" id="2_khbpt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i7yk8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvli1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vttn"]
+size = Vector2(44, 22)
+
+[node name="red_house" instance=ExtResource("1_olp5v")]
+
+[node name="MainSprite" parent="." index="0"]
+position = Vector2(0, -3)
+texture = ExtResource("2_khbpt")
+
+[node name="UnlockDoor" parent="." index="1"]
+z_index = 1
+position = Vector2(-2.98023e-08, -6.5)
+scale = Vector2(14, 15)
+texture = SubResource("CanvasTexture_i7yk8")
+
+[node name="CollisionShape2D" parent="InArea" index="0"]
+shape = SubResource("CircleShape2D_lvli1")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_7vttn")
+
+[node name="Confirm_panel" parent="." index="4"]
+offset_left = -65.0
+offset_top = -112.0
+offset_right = 66.0
+offset_bottom = -54.0

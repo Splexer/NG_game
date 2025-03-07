@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjevl7sluklns"]
+
+[ext_resource type="Script" path="res://elements/player/player.gd" id="1_ngqnr"]
+[ext_resource type="Texture2D" uid="uid://dybd82pa2vqqm" path="res://assets/player/Prototype_Character.png" id="1_tdr2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0duc"]
+atlas = ExtResource("1_tdr2b")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de8py"]
+atlas = ExtResource("1_tdr2b")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dm5f"]
+atlas = ExtResource("1_tdr2b")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j65l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0duc")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de8py")
+}],
+"loop": true,
+"name": &"left_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dm5f")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qgxw"]
+radius = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cbu0"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(0, 1)
+collision_layer = 4
+collision_mask = 56
+script = ExtResource("1_ngqnr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+scale = Vector2(1, 0.90625)
+sprite_frames = SubResource("SpriteFrames_j65l1")
+animation = &"down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6qgxw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[node name="Interact_label" type="Label" parent="."]
+visible = false
+z_index = 8
+texture_filter = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = -41.0
+offset_right = 21.0
+offset_bottom = -18.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "E"
+label_settings = SubResource("LabelSettings_3cbu0")
+horizontal_alignment = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = 6.28319
+target_position = Vector2(1.9233e-06, 11)
+collision_mask = 24

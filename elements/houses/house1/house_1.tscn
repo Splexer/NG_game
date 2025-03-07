@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bal2ilt8klwmn"]
+
+[ext_resource type="PackedScene" uid="uid://bgswlm7iws7a3" path="res://elements/houses/baseHouse/base_house.tscn" id="1_iru0g"]
+[ext_resource type="Texture2D" uid="uid://c7a2k6inxbosq" path="res://assets/house/House.png" id="2_4a3ld"]
+[ext_resource type="Script" path="res://elements/houses/house1/house_1.gd" id="2_c2ou0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_onr6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otv51"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbunt"]
+size = Vector2(57, 56)
+
+[node name="House1" instance=ExtResource("1_iru0g")]
+script = ExtResource("2_c2ou0")
+is_open = false
+
+[node name="MainSprite" parent="." index="0"]
+texture = ExtResource("2_4a3ld")
+
+[node name="UnlockDoor" parent="." index="1"]
+position = Vector2(-13, -13)
+scale = Vector2(11, -19.847)
+texture = SubResource("CanvasTexture_onr6x")
+
+[node name="InArea" parent="." index="2"]
+position = Vector2(-14, 5)
+
+[node name="CollisionShape2D" parent="InArea" index="0"]
+shape = SubResource("RectangleShape2D_otv51")
+
+[node name="StaticBody2D" parent="." index="3"]
+position = Vector2(0, -49)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.5, 20)
+shape = SubResource("RectangleShape2D_tbunt")
+
+[node name="Confirm_panel" parent="." index="4"]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -69.0
+offset_top = -106.0
+offset_right = 71.0
+offset_bottom = -46.0
+grow_horizontal = 1
+grow_vertical = 1

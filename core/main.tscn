@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c070xfa36t1lw"]
+
+[ext_resource type="Script" path="res://core/main.gd" id="1_0sb5u"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_0sb5u")

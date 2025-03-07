@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://50mteyjer44x"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_qcfl2"]
+[ext_resource type="Script" path="res://elements/interact_obj/brick_furnance/brick_furnance.gd" id="2_2s76t"]
+[ext_resource type="Texture2D" uid="uid://c0itdy4e7araq" path="res://assets/objects/Bricks_01-Sheet.png" id="2_5co4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpoaw"]
+size = Vector2(25, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d8ft"]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqa5e"]
+atlas = ExtResource("2_5co4s")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4w1n"]
+atlas = ExtResource("2_5co4s")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s31wq"]
+atlas = ExtResource("2_5co4s")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2khp6"]
+atlas = ExtResource("2_5co4s")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xb020"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqa5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4w1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s31wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2khp6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="brick_furnance" instance=ExtResource("1_qcfl2")]
+script = ExtResource("2_2s76t")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_vpoaw")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_4d8ft")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_xb020")
+autoplay = "default"
+offset = Vector2(0, -20)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bewbv52qkrwhs"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_jqmt6"]
+[ext_resource type="Script" path="res://elements/interact_obj/axe_pen/axe_pen.gd" id="2_4njay"]
+[ext_resource type="Texture2D" uid="uid://cmjcriujvohur" path="res://assets/objects/Level_1.png" id="2_q7s71"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a78px"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mm2h"]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2625"]
+atlas = ExtResource("2_q7s71")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3en3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2625")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="axe_pen" instance=ExtResource("1_jqmt6")]
+position = Vector2(0, -8)
+script = ExtResource("2_4njay")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_a78px")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_3mm2h")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, 11)
+sprite_frames = SubResource("SpriteFrames_u3en3")
+offset = Vector2(0, -8)

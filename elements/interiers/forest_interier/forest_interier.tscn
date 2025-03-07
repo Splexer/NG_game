@@ -1,0 +1,123 @@
+[gd_scene load_steps=15 format=4 uid="uid://bv47sd0ltncem"]
+
+[ext_resource type="PackedScene" uid="uid://by1fh0eldwese" path="res://elements/interiers/base_interier/base_interier.tscn" id="1_u5yjx"]
+[ext_resource type="Script" path="res://elements/interiers/forest_interier/forest_interier.gd" id="2_mp5k5"]
+[ext_resource type="Texture2D" uid="uid://codp2tqfw0ojq" path="res://assets/tilesets/Wooden_House_Walls_Tilset.png" id="3_i7sa5"]
+[ext_resource type="PackedScene" uid="uid://cxv14oldw78cu" path="res://elements/interact_obj/furnance/furnace.tscn" id="4_jroif"]
+[ext_resource type="PackedScene" uid="uid://dk1jmjd3jsujt" path="res://elements/interact_obj/tree/tree.tscn" id="5_itffv"]
+[ext_resource type="PackedScene" uid="uid://clsj8lvaijt05" path="res://elements/item/apple/apple.tscn" id="6_2rq8h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ceril"]
+texture = ExtResource("3_i7sa5")
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_einbs"]
+sources/2 = SubResource("TileSetAtlasSource_ceril")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x36nt"]
+size = Vector2(34.25, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eu43t"]
+size = Vector2(160, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ukel"]
+size = Vector2(5, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hag5y"]
+size = Vector2(64, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwcup"]
+size = Vector2(5, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mab64"]
+size = Vector2(64, 5.5)
+
+[node name="forest_interier" instance=ExtResource("1_u5yjx")]
+script = ExtResource("2_mp5k5")
+
+[node name="TileMapLayer" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD7//3/AgABAAEAAAD7//7/AgABAAEAAAD7////AgABAAEAAAD7/wAAAgABAAEAAAD8//3/AgABAAEAAAD8//7/AgABAAEAAAD8////AgABAAEAAAD8/wAAAgABAAEAAAD9//3/AgABAAEAAAD9//7/AgABAAEAAAD9////AgABAAEAAAD9/wAAAgABAAEAAAD+//3/AgABAAEAAAD+//7/AgABAAEAAAD+////AgABAAEAAAD+/wAAAgABAAEAAAD///3/AgABAAEAAAD///7/AgABAAEAAAD/////AgABAAEAAAD//wAAAgABAAEAAAAAAP3/AgABAAEAAAAAAP7/AgABAAEAAAAAAP//AgABAAEAAAAAAAAAAgABAAEAAAABAP3/AgABAAEAAAABAP7/AgABAAEAAAABAP//AgABAAEAAAABAAAAAgABAAEAAAACAP3/AgABAAEAAAACAP7/AgABAAEAAAACAP//AgABAAEAAAACAAAAAgABAAEAAAADAP3/AgABAAEAAAADAP7/AgABAAEAAAADAP//AgABAAEAAAADAAAAAgABAAEAAAAEAP3/AgABAAEAAAAEAP7/AgABAAEAAAAEAP//AgABAAEAAAAEAAAAAgABAAEAAAD7/wEAAgABAAEAAAD8/wEAAgABAAEAAAD9/wEAAgABAAEAAAD+/wEAAgABAAEAAAD//wEAAgABAAEAAAAAAAEAAgABAAEAAAABAAEAAgABAAEAAAACAAEAAgABAAEAAAADAAEAAgABAAEAAAAEAAEAAgABAAEAAAD7/wIAAgABAAIAAAD8/wIAAgABAAIAAAD9/wIAAgADAAIAAAD+/wIAAgABAAIAAAD//wIAAgABAAEAAAAAAAIAAgABAAEAAAABAAIAAgADAAIAAAACAAIAAgABAAIAAAADAAIAAgABAAIAAAAEAAIAAgABAAIAAAD6//3/AgAAAAEAAAD6//7/AgAAAAEAAAD6////AgAAAAEAAAD6/wAAAgAAAAEAAAD6/wEAAgAAAAEAAAD6/wIAAgAAAAEAAAAFAP3/AgACAAEAAAAFAP7/AgACAAEAAAAFAP//AgACAAEAAAAFAAAAAgACAAEAAAAFAAEAAgACAAEAAAAFAAIAAgACAAEAAAD6//z/AgAAAAAAAAD7//z/AgABAAAAAAD8//z/AgABAAAAAAD9//z/AgABAAAAAAD+//z/AgABAAAAAAD///z/AgABAAAAAAAAAPz/AgABAAAAAAABAPz/AgABAAAAAAACAPz/AgABAAAAAAADAPz/AgABAAAAAAAEAPz/AgABAAAAAAAFAPz/AgACAAAAAAA=")
+tile_set = SubResource("TileSet_einbs")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(8, -82)
+scale = Vector2(0.148438, 0.131348)
+
+[node name="exit_area" parent="." index="2"]
+position = Vector2(33, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_area" index="0"]
+position = Vector2(-33, 49)
+shape = SubResource("RectangleShape2D_x36nt")
+
+[node name="TopWall" type="StaticBody2D" parent="." index="4"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" index="0"]
+position = Vector2(0, -53)
+shape = SubResource("RectangleShape2D_eu43t")
+
+[node name="RightWall" type="StaticBody2D" parent="." index="5"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" index="0"]
+position = Vector2(83, -5.5)
+shape = SubResource("RectangleShape2D_1ukel")
+
+[node name="DownWall1" type="StaticBody2D" parent="." index="6"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall1" index="0"]
+position = Vector2(-48, 37)
+shape = SubResource("RectangleShape2D_hag5y")
+
+[node name="LeftWall" type="StaticBody2D" parent="." index="7"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" index="0"]
+position = Vector2(-82.5, -5.5)
+shape = SubResource("RectangleShape2D_gwcup")
+
+[node name="DownWall2" type="StaticBody2D" parent="." index="8"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall2" index="0"]
+position = Vector2(48, 37)
+shape = SubResource("RectangleShape2D_mab64")
+
+[node name="furnace" parent="." index="9" instance=ExtResource("4_jroif")]
+position = Vector2(0, -32)
+
+[node name="tree" parent="." index="10" instance=ExtResource("5_itffv")]
+modulate = Color(1, 0.831373, 0, 1)
+position = Vector2(-58, -21)
+
+[node name="tree2" parent="." index="11" instance=ExtResource("5_itffv")]
+position = Vector2(54, -22)
+text_interaction = "Very strange"
+
+[node name="tree3" parent="." index="12" instance=ExtResource("5_itffv")]
+position = Vector2(-27, 20)
+text_interaction = "Tree in house?"
+
+[node name="apple" parent="." index="13" instance=ExtResource("6_2rq8h")]
+z_index = 1
+position = Vector2(-62, -1)
+rotation = -1.15017

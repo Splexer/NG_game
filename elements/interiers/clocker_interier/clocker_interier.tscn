@@ -1,0 +1,182 @@
+[gd_scene load_steps=19 format=4 uid="uid://cf2k0mne0q7ls"]
+
+[ext_resource type="PackedScene" uid="uid://by1fh0eldwese" path="res://elements/interiers/base_interier/base_interier.tscn" id="1_jda54"]
+[ext_resource type="Texture2D" uid="uid://codp2tqfw0ojq" path="res://assets/tilesets/Wooden_House_Walls_Tilset.png" id="2_t654v"]
+[ext_resource type="PackedScene" uid="uid://clje6yjkrwlcm" path="res://elements/interact_obj/Clock/clock.tscn" id="3_04mna"]
+[ext_resource type="PackedScene" uid="uid://50mteyjer44x" path="res://elements/interact_obj/brick_furnance/brick_furnance.tscn" id="4_5ib34"]
+[ext_resource type="PackedScene" uid="uid://camp3xg0yytwm" path="res://elements/item/pepper/pepper.tscn" id="5_aiksf"]
+[ext_resource type="PackedScene" uid="uid://byexnn7q50ose" path="res://elements/item/orange/orange.tscn" id="6_xa7wu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsq0j"]
+size = Vector2(13, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwxdw"]
+size = Vector2(12, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlidt"]
+size = Vector2(5, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auhu6"]
+size = Vector2(4, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4vs0"]
+size = Vector2(352, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwoji"]
+size = Vector2(97, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpefn"]
+size = Vector2(95, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiha7"]
+size = Vector2(60, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxige"]
+size = Vector2(60, 17)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wvpl"]
+texture = ExtResource("2_t654v")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6t0eb"]
+sources/0 = SubResource("TileSetAtlasSource_8wvpl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkuus"]
+radius = 17.0294
+
+[node name="clocker_interier" instance=ExtResource("1_jda54")]
+
+[node name="left" type="StaticBody2D" parent="." index="0"]
+position = Vector2(-179, 2)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left" index="0"]
+position = Vector2(-3.5, 68.5)
+shape = SubResource("RectangleShape2D_lsq0j")
+
+[node name="right" type="StaticBody2D" parent="." index="1"]
+position = Vector2(179, 3)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right" index="0"]
+position = Vector2(4, 68.5)
+shape = SubResource("RectangleShape2D_fwxdw")
+
+[node name="right2" type="StaticBody2D" parent="." index="2"]
+position = Vector2(179, 3)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right2" index="0"]
+position = Vector2(-64.5, 166.5)
+shape = SubResource("RectangleShape2D_tlidt")
+
+[node name="left2" type="StaticBody2D" parent="." index="3"]
+position = Vector2(-117, 199)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left2" index="0"]
+position = Vector2(3, -30.5)
+shape = SubResource("RectangleShape2D_auhu6")
+
+[node name="up" type="StaticBody2D" parent="." index="4"]
+position = Vector2(-179, 2)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="up" index="0"]
+position = Vector2(179, 4)
+shape = SubResource("RectangleShape2D_g4vs0")
+
+[node name="down" type="StaticBody2D" parent="." index="5"]
+position = Vector2(-179, 2)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down" index="0"]
+position = Vector2(115.5, 199)
+shape = SubResource("RectangleShape2D_fwoji")
+
+[node name="down2" type="StaticBody2D" parent="." index="6"]
+position = Vector2(110, 201)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down2" index="0"]
+position = Vector2(-45.5, 1.5)
+shape = SubResource("RectangleShape2D_rpefn")
+
+[node name="down3" type="StaticBody2D" parent="." index="7"]
+position = Vector2(-174, 135)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down3" index="0"]
+position = Vector2(28, 2.5)
+shape = SubResource("RectangleShape2D_jiha7")
+
+[node name="down4" type="StaticBody2D" parent="." index="8"]
+position = Vector2(122, 137)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down4" index="0"]
+position = Vector2(25, 1.5)
+shape = SubResource("RectangleShape2D_xxige")
+
+[node name="TileMapLayer" parent="." index="9"]
+tile_map_data = PackedByteArray("AAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAD4/wAAAAABAAAAAAD5/wAAAAABAAAAAAD6/wAAAAABAAAAAAD7/wAAAAABAAAAAAD8/wAAAAABAAAAAAD9/wAAAAABAAAAAAD4/wEAAAABAAEAAAD5/wEAAAABAAEAAAD6/wEAAAABAAEAAAD7/wEAAAABAAEAAAD8/wEAAAABAAEAAAD9/wEAAAABAAEAAAD+/wEAAAABAAEAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAABAAEAAAAFAAEAAAABAAEAAAAGAAEAAAABAAEAAAAHAAEAAAABAAEAAAAHAAIAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAD4/wIAAAABAAEAAAD4/wMAAAABAAEAAAD4/wQAAAABAAEAAAD4/wUAAAABAAEAAAD4/wYAAAABAAEAAAD4/wcAAAABAAEAAAD5/wIAAAABAAEAAAD5/wMAAAABAAEAAAD5/wQAAAABAAEAAAD5/wUAAAABAAEAAAD5/wYAAAABAAEAAAD5/wcAAAABAAEAAAD6/wIAAAABAAEAAAD6/wMAAAABAAEAAAD6/wQAAAABAAEAAAD6/wUAAAABAAEAAAD6/wYAAAABAAEAAAD6/wcAAAABAAEAAAD7/wIAAAABAAEAAAD7/wMAAAABAAEAAAD7/wQAAAABAAEAAAD7/wUAAAABAAEAAAD7/wYAAAABAAEAAAD7/wcAAAABAAEAAAD8/wIAAAABAAEAAAD8/wMAAAABAAEAAAD8/wQAAAABAAEAAAD8/wUAAAABAAEAAAD8/wYAAAABAAEAAAD8/wcAAAABAAEAAAD9/wIAAAABAAEAAAD9/wMAAAABAAEAAAD9/wQAAAABAAEAAAD9/wUAAAABAAEAAAD9/wYAAAABAAEAAAD9/wcAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD+/wQAAAABAAEAAAD+/wUAAAABAAEAAAD+/wYAAAABAAEAAAD+/wcAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAD//wQAAAABAAEAAAD//wUAAAABAAEAAAD//wYAAAABAAEAAAD//wcAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAAAAAQAAAABAAEAAAAAAAUAAAABAAEAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAABAAYAAAABAAEAAAABAAcAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAADAAcAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAD1/wEAAAABAAEAAAD1/wIAAAABAAEAAAD1/wMAAAABAAEAAAD1/wQAAAABAAEAAAD1/wUAAAABAAEAAAD1/wYAAAABAAEAAAD1/wcAAAABAAEAAAD2/wEAAAABAAEAAAD2/wIAAAABAAEAAAD2/wMAAAABAAEAAAD2/wQAAAABAAEAAAD2/wUAAAABAAEAAAD2/wYAAAABAAEAAAD2/wcAAAABAAEAAAD3/wEAAAABAAEAAAD3/wIAAAABAAEAAAD3/wMAAAABAAEAAAD3/wQAAAABAAEAAAD3/wUAAAABAAEAAAD3/wYAAAABAAEAAAD3/wcAAAABAAEAAAAIAAEAAAABAAEAAAAIAAIAAAABAAEAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAIAAYAAAABAAEAAAAIAAcAAAABAAEAAAAJAAEAAAABAAEAAAAJAAIAAAABAAEAAAAJAAMAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAKAAEAAAABAAEAAAAKAAIAAAABAAEAAAAKAAMAAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAD0/wAAAAAAAAAAAAD0/wEAAAAAAAEAAAD0/wIAAAAAAAEAAAD0/wMAAAAAAAEAAAD0/wQAAAAAAAEAAAD0/wUAAAAAAAEAAAD0/wYAAAAAAAEAAAD0/wcAAAAAAAEAAAD1/wgAAAABAAIAAAD2/wgAAAADAAIAAAD3/wgAAAABAAIAAAD4/wgAAAAEAAAAAAD0/wgAAAAAAAIAAAD5/wgAAAABAAEAAAD5/wkAAAABAAEAAAD5/woAAAABAAEAAAD5/wsAAAABAAEAAAD5/wwAAAABAAIAAAD6/wwAAAABAAIAAAD7/wwAAAADAAIAAAD8/wwAAAABAAIAAAD9/wwAAAABAAIAAAD+/wwAAAABAAIAAAABAAwAAAABAAIAAAACAAwAAAABAAIAAAADAAwAAAABAAIAAAAEAAwAAAADAAIAAAAFAAwAAAABAAIAAAAGAAwAAAABAAIAAAAGAAgAAAABAAEAAAAGAAkAAAABAAEAAAAGAAoAAAABAAEAAAAGAAsAAAABAAEAAAAHAAgAAAADAAAAAAAIAAgAAAABAAAAAAAJAAgAAAADAAIAAAAKAAgAAAABAAIAAAALAAAAAAACAAAAAAALAAEAAAACAAEAAAALAAIAAAACAAEAAAALAAMAAAACAAEAAAALAAQAAAACAAEAAAALAAUAAAACAAEAAAALAAYAAAACAAEAAAALAAcAAAACAAEAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAALAAgAAAACAAIAAAD1/wAAAAABAAAAAAD2/wAAAAABAAAAAAD3/wAAAAABAAAAAAD6/wgAAAABAAEAAAD6/wkAAAABAAEAAAD6/woAAAABAAEAAAD6/wsAAAABAAEAAAD7/wgAAAABAAEAAAD7/wkAAAABAAEAAAD7/woAAAABAAEAAAD7/wsAAAABAAEAAAD8/wgAAAABAAEAAAD8/wkAAAABAAEAAAD8/woAAAABAAEAAAD8/wsAAAABAAEAAAD9/wgAAAABAAEAAAD9/wkAAAABAAEAAAD9/woAAAABAAEAAAD9/wsAAAABAAEAAAD+/wgAAAABAAEAAAD+/wkAAAABAAEAAAD+/woAAAABAAEAAAD+/wsAAAABAAEAAAD//wgAAAABAAEAAAD//wkAAAABAAEAAAD//woAAAABAAEAAAD//wsAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAAAAAAoAAAABAAEAAAAAAAsAAAABAAEAAAABAAgAAAABAAEAAAABAAkAAAABAAEAAAABAAoAAAABAAEAAAABAAsAAAABAAEAAAACAAgAAAABAAEAAAACAAkAAAABAAEAAAACAAoAAAABAAEAAAACAAsAAAABAAEAAAADAAgAAAABAAEAAAADAAkAAAABAAEAAAADAAoAAAABAAEAAAADAAsAAAABAAEAAAAEAAgAAAABAAEAAAAEAAkAAAABAAEAAAAEAAoAAAABAAEAAAAEAAsAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAFAAoAAAABAAEAAAAFAAsAAAABAAEAAAD4/wkAAAAAAAEAAAD4/woAAAAAAAEAAAD4/wsAAAAAAAEAAAD4/wwAAAAAAAIAAAAHAAwAAAACAAIAAAAHAAkAAAACAAEAAAAHAAoAAAACAAEAAAAHAAsAAAACAAEAAAD//wwAAAABAAEAAAAAAAwAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_6t0eb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_area" index="0"]
+position = Vector2(0, 212)
+shape = SubResource("CircleShape2D_wkuus")
+
+[node name="Spawn_Pos" parent="." index="12"]
+position = Vector2(0, 153)
+
+[node name="Clock" parent="." index="13" instance=ExtResource("3_04mna")]
+position = Vector2(-144, 34)
+
+[node name="Clock4" parent="." index="14" instance=ExtResource("3_04mna")]
+position = Vector2(78, 34)
+
+[node name="Clock5" parent="." index="15" instance=ExtResource("3_04mna")]
+position = Vector2(144, 34)
+
+[node name="Clock6" parent="." index="16" instance=ExtResource("3_04mna")]
+position = Vector2(-79, 35)
+
+[node name="brick_furnance" parent="." index="17" instance=ExtResource("4_5ib34")]
+position = Vector2(0, 37)
+
+[node name="pepper" parent="." index="18" instance=ExtResource("5_aiksf")]
+position = Vector2(-155, 93)
+
+[node name="pepper2" parent="." index="19" instance=ExtResource("5_aiksf")]
+position = Vector2(-131, 92)
+
+[node name="pepper3" parent="." index="20" instance=ExtResource("5_aiksf")]
+position = Vector2(-158, 115)
+
+[node name="pepper4" parent="." index="21" instance=ExtResource("5_aiksf")]
+position = Vector2(-135, 118)
+
+[node name="orange" parent="." index="22" instance=ExtResource("6_xa7wu")]
+position = Vector2(159, 115)

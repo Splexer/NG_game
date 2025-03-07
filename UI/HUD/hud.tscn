@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb2ysohf42k02"]
+
+[ext_resource type="Script" path="res://UI/HUD/hud.gd" id="1_rfknw"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rfknw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Stats_panel" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/Stats_panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stats_panel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stats_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HP_label" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP
+"
+
+[node name="HP_value" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10
+"
+
+[node name="HP_separator" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "/
+"
+
+[node name="HP_max_value" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stats_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Keys_Label" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "KEYS :
+"
+
+[node name="Keys_Value" type="Label" parent="MarginContainer/Stats_panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0
+"
+
+[node name="Message_panel" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="MarginContainer/Message_panel"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="MarginContainer/Message_panel"]
+custom_minimum_size = Vector2(320, 30)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

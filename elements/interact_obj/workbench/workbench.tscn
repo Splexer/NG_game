@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwtd0k1h78ksm"]
+
+[ext_resource type="PackedScene" uid="uid://b0mfm4ns6prx8" path="res://elements/interact_obj/base_interact_obj/base_interact_obj.tscn" id="1_f8af7"]
+[ext_resource type="Script" path="res://elements/interact_obj/workbench/workbench.gd" id="2_rkoyg"]
+[ext_resource type="Texture2D" uid="uid://ouhvibrxbd6c" path="res://assets/objects/Workbench.png" id="2_uu4vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i6vc"]
+size = Vector2(62, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqmer"]
+radius = 48.0104
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n6ci"]
+atlas = ExtResource("2_uu4vp")
+region = Rect2(96, 64, 96, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1m53o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n6ci")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="workbench" instance=ExtResource("1_f8af7")]
+script = ExtResource("2_rkoyg")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_8i6vc")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_yqmer")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_1m53o")
+offset = Vector2(0, -8)

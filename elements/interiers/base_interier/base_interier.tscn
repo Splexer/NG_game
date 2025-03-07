@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://by1fh0eldwese"]
+
+[ext_resource type="Script" path="res://elements/interiers/base_interier/base_interier.gd" id="1_w3vnu"]
+
+[node name="base_interier" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_w3vnu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="exit_area" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="Spawn_Pos" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="exit_area" to="." method="_on_exit_area_body_entered"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://clsj8lvaijt05"]
+
+[ext_resource type="PackedScene" uid="uid://blekfskps46oc" path="res://elements/item/base_item/base_item.tscn" id="1_s6qkq"]
+[ext_resource type="Script" path="res://elements/item/apple/apple.gd" id="2_nu2j1"]
+[ext_resource type="Texture2D" uid="uid://chql7j6e3ek15" path="res://assets/items/Basic_Plants.png" id="2_qbcq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7kvi"]
+atlas = ExtResource("2_qbcq4")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulyog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7kvi")
+}],
+"loop": true,
+"name": &"main",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcwx2"]
+radius = 8.0
+
+[node name="apple" instance=ExtResource("1_s6qkq")]
+script = ExtResource("2_nu2j1")
+health_power = 1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ulyog")
+animation = &"main"
+
+[node name="Area2D" parent="." index="1"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_gcwx2")
