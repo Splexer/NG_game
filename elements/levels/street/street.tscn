@@ -695,3 +695,21 @@ position = Vector2(243, 571)
 
 [node name="poison_locked" parent="." instance=ExtResource("20_7k5yr")]
 position = Vector2(780, 194)
+
+[node name="key2" parent="." instance=ExtResource("11_08po5")]
+position = Vector2(308, 621)
+
+[node name="campfire2" parent="." instance=ExtResource("4_5frdl")]
+position = Vector2(1003, 526)
+
+[node name="tree5" parent="." instance=ExtResource("10_w682c")]
+position = Vector2(1071, 313)
+
+[node name="tree6" parent="." instance=ExtResource("10_w682c")]
+position = Vector2(1055, 460)
+
+[node name="tree7" parent="." instance=ExtResource("10_w682c")]
+position = Vector2(838, 539)
+
+[node name="tree8" parent="." instance=ExtResource("10_w682c")]
+position = Vector2(773, 311)
